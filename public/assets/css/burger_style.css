@@ -1,0 +1,16 @@
+body {
+  background-color: #ffa100;
+}
+
+.burg {
+  width: 60%;
+  height: 75%;
+  line-height: 1rem;
+  font-size: 0.9rem;
+}
+
+.burgEaten {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+
+}

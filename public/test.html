@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Burgers</title>
+  <!-- Load Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/burger_style.css">
+  <!-- Load jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row mt-3">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div class="row">
+          <div class="col-sm-12 d-flex justify-content-center">
+            <img src="../public/assets/img/burger.png" alt ="Cartoon image of a burger" class="ml-auto mr-auto"></img>
+          </div>
+        </div>
+        <div class = "row">
+          <div class="col-sm-12">
+            <h1 class="text-danger text-center">EAT-DA-BURGER!</h1>
+          <div class="col-sm-12"></div>
+          </div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-5 d-flex">
+      <form class="w-100">
+        <div class="form-row mb-3">
+          <textarea type="text" row="2" class="form-control burg" name="burger1" disabled>Carolina Bacon Double Cheeseburger</textarea>
+          <button type="submit" class="btn btn-primary ml-4 mt-2">Devour It!</button>
+        </div>
+        <div class="form-row mb-3">
+          <textarea type="text" row="2" class="form-control burg" name="burger2" disabled>Bacon Double Cheeseburger</textarea>
+          <button type="submit" class="btn btn-primary ml-4 mt-2">Devour It!</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-3">
+      <form>
+        <div class="form-row">
+          <input type="text" class=" w-100 burgEaten" name="burger1" value="Carolina Bacon Double Cheeseburger"  class="w-100" disabled>
+        </div>
+        <div class="form-row">
+          <input type="text" class=" w-100 burgEaten" name="burger1" value="Bacon Double Cheeseburger"  class="w-100" disabled>
+        </div>
+      </form>
+    </div>
+    <div class="col-sm-2"></div>
+
+
+
+
+
+  </div>
+
+  <div class="row mt-3">
+    <div class=col-sm-4></div>
+    <div class=col-sm-4 d-flex justify-content-center>
+      <form id="createburger">
+        <div class="form-group">
+          <textarea type="text" class="form-control" row="3" name="burger"></textarea>
+        </div>
+        <div class="form-row text-center">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+      </form>
+      <p class="text-center mt-3">Enter a burger you want to Eat! Click the "Submit" button.</p>
+    </div>
+    <div class=col-sm-4></div>
+  </div>
+</body>
+</html>
