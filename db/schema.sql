@@ -1,12 +1,4 @@
-DROP DATABASE IF EXISTS burgers_db;
-CREATE DATABASE burgers_db;
+DROP DATABASE IF EXISTS burgerlist;
+CREATE DATABASE burgerlist
 
-USE burgers_db;
-
-CREATE TABLE burgers 
-(
-  id INTEGER NOT NULL AUTO_INCREMENT, 
-  burger_name VARCHAR(255) NOT NULL, 
-  devoured BOOL NOT NULL,
-  PRIMARY KEY(id)
-);
+USE burgerlist;

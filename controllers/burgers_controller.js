@@ -1,58 +1,59 @@
 //define dependencies
 var express = require("express");
 var burger = require("../models/burgers.js");
-var router = express.Router();
+var db = require("../models")
 
-// Route that reads the data from the data model and renders it to the view
-router.get("/", function (req, res) {
+// Routes
+// =============================================================
+module.exports = function(app) {
 
-  //call the selectAll method from the burger data model object and pass in the callback function
-  //data is the result from the ORM.js database query
-  burger.selectAll(function(data) {
-    //define object to render to view handlebars
-    var hbsObject = {
-      burgers: data
-    };
-    console.log(hbsObject);
-    //render the object to index.handlebars
-    res.render("index", hbsObject);
+  // Route that reads the data from the data model and renders it to the view
+  app.get("/", function (req, res) {
+
+    //call the selectAll method from the burger data model object and pass in the callback function
+    //data is the result from the ORM.js database query
+    db.burgers.findAll({}).then(function(burgers) {
+      //define object to render to view handlebars
+      var hbsObject = {
+        burgers: burgers
+      };
+      console.log(hbsObject);
+      //render the object to index.handlebars
+      res.render("index", hbsObject);
+    });
   });
-});
 
-//define route that is activated when the client sends a post request with new burger data
-router.post("/api/burgers", function(req, res) {
-  //call the insertOne method from the burger data model object
-  burger.insertOne([
-    //pass in the cols, values, and callback function
-    "burger_name", "devoured"
-  ], [
-    req.body.name, false
-  ], function(result) {
-    // Send back the ID of the new burger
-    res.json({ id: result.insertId });
+  //define route that is activated when the client sends a post request with new burger data
+  app.post("/api/burgers", function(req, res) {
+
+    var burger = req.body;
+    //call the insertOne method from the burger data model object
+    db.burgers.create({
+      burger_name: burger.name,
+    }).then(function(burger) {
+      // Send back the ID of the new burger
+      res.json({burger});
+    });
   });
-});
 
-//route that is called by a put from the client to update a database record
-router.put("/api/burgers/:id", function(req, res) {
-  //capture the specific id of the burger in a variable
-  var condition = "id = " + req.params.id;
+  //route that is called by a put from the client to update a database record
+  app.put("/api/burgers/:id", function(req, res) {
 
-  console.log("condition", condition);
+    var burger = req.body;
+    //capture the specific id of the burger in a variable
+    var id = req.params.id;
 
-  //call the updateOne method from the burger data model object
-  burger.updateOne({
-    //pass in the field and value to be updated, the id, and the callback function
-    devoured: req.body.devoured
-  }, condition, function(result) {
-    if (result.changedRows == 0) {
-      // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
+    //call the updateOne method from the burger data model object
+    db.burgers.update({
+      //pass in the field and value to be updated, the id, and the callback function
+      devoured: burger.devoured
+    }, 
+    {
+      where: {
+        id: id
+      }
+    }).then(function(burger) {
+      res.json(burger);
+    });
   });
-});
-
-//export the router
-module.exports = router;
+};
