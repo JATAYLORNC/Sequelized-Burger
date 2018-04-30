@@ -3,8 +3,8 @@ body {
 }
 
 .burg {
-  width: 60%;
-  height: 75%;
+  width: 100%;
+  height: 80%;
   line-height: 1rem;
   font-size: 0.9rem;
 }
@@ -12,5 +12,29 @@ body {
 .burgEaten {
   font-size: 0.9rem;
   line-height: 1.5rem;
+  width: 90%;
 
+}
+
+.header_colors {
+  color: #b90500
+}
+
+.burgers_ready {
+  width: 95%;
+  background-color: #40B2B5;
+  color: #ffffff;
+}
+
+.burgers_devoured {
+  background-color: #40B2B5;
+  color: #ffffff;
+}
+
+.custName {
+  height: 30%;
+}
+
+.devour-burger {
+  height: 50%
 }

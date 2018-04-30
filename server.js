@@ -3,8 +3,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 require("dotenv").config();
 
-// console.log(process.env);
-
 //create instance of express server and define port
 var app = express();
 var port = process.env.PORT || 3000;

@@ -17,26 +17,36 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-5 d-flex">
-      <form class="w-100">
-        {{#each burgers}}
-          {{#unless devoured}}
-            {{> burger-block}}
-          {{/unless}}
-		    {{/each}}
-      </form>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-6 d-flex">
+      <div class="card burgers_ready">
+        <div class="card-header mb-3">
+          <h2 class="text-center">Burgers Ready To Eat!</h2>
+        </div>         
+        <form class="w-100">
+          {{#each burgers}}
+            {{#unless devoured}}
+              {{> burger-block}}
+            {{/unless}}
+          {{/each}}
+        </form>
+      </div>
     </div>
-    <div class="col-sm-3">
-      <form>
-        {{#each burgers}}
-          {{#if devoured}}
-            {{> burger-devoured-block}}
-          {{/if}}
-		    {{/each}}
-      </form>
+    <div class="col-sm-4">
+      <div class="card w-100 burgers_devoured">
+        <div class="card-header mb-3">
+          <h2 class="text-center">Burgers Devoured!</h2>
+        </div>
+        <form>
+          {{#each burgers}}
+            {{#if devoured}}
+              {{> burger-devoured-block}}
+            {{/if}}
+          {{/each}}
+        </form>
+      </div>
     </div>
-    <div class="col-sm-2"></div>
+    <div class="col-sm-1"></div>
   </div>
   <div class="row mt-3">
     <div class=col-sm-4></div>
